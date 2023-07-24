@@ -1,10 +1,11 @@
 {
     "require": {
+        "php": ">=7.2.19",
         "catfan/medoo": "^2.1",
-        "monolog/monolog": "^3.4",
+        "monolog/monolog": "^1.17",
         "slim/php-view": "2.0",
         "slim/slim": "3.1",
-        "slim/twig-view": "^2.5"
+        "slim/twig-view": "2.5"
     },
     "autoload": {
         "psr-4": {
