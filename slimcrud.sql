@@ -1172,7 +1172,7 @@ INSERT INTO `tbl_sekolah` (`id`, `nama_sekolah`, `alamat`) VALUES
 --
 ALTER TABLE `tbl_member`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `tbl_member_ibfk_1` (`id_sekolah`);
+  ADD KEY `fk_id_sekolah` (`id_sekolah`);
 
 --
 -- Indexes for table `tbl_sekolah`
@@ -1188,7 +1188,7 @@ ALTER TABLE `tbl_sekolah`
 -- Constraints for table `tbl_member`
 --
 ALTER TABLE `tbl_member`
-  ADD CONSTRAINT `tbl_member_ibfk_1` FOREIGN KEY (`id_sekolah`) REFERENCES `tbl_sekolah` (`id`);
+  ADD CONSTRAINT `fk_id_sekolah` FOREIGN KEY (`id_sekolah`) REFERENCES `tbl_sekolah` (`id`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
