@@ -6,6 +6,7 @@ use App\Controller\SekolahController;
 use Slim\App;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use Slim\Http\Response as HttpResponse;
 
 return function (App $app) {
 
@@ -18,6 +19,10 @@ return function (App $app) {
     $app->post('/add-sekolah', function ($request, $response, array $args){
         $data = $request->getParsedBody();
         return SekolahController::create($this, $request, $response,  ['data' => $data]);
+    });
+    $app->delete('/api/delete-sekolah', function (Request $request, HttpResponse $response, array $args) {
+        $data = $request->getParsedBody();
+        return SekolahController::deleteSekolah($this, $request, $response, ['data' => $data]);
     });
 
     $app->get('/api/sekolah', function($request, $response, array $args) {

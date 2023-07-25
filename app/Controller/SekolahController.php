@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Http\Response as HttpResponse;
+
 class SekolahController extends BaseController {
 
     public static function index($app, $request, $response, $args=null) {
@@ -73,5 +76,11 @@ class SekolahController extends BaseController {
         );
         
         return $response->withJson($json_data);
+    }
+
+    public static function deleteSekolah($app, $request, HttpResponse $response, $args) {
+        $id = $args['data'];
+        $result = $app->db->delete('tbl_sekolah', ["id" => intval($id)]);
+        return $response->withJson($result);
     }
 }

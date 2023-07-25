@@ -84,55 +84,7 @@
 		</div>
 	</div>
 
-
-	<div class="modal fade" id="ModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">
-						Edit data
-					</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<form>
-					<div class="modal-body">
-						<div class="mb-3">
-							<label for="">Customer Name</label>
-							<input type="text" class="form-control " name="cust_code" id="edit_code" hidden>
-							<input id="edit_name" type="text" name="cust_name" class="form-control" required autofocus/>
-						</div>
-						<div class="mb-3">
-							<label for="">Customer City</label>
-							<input id="edit_city" type="text" name="cust_city" class="form-control" required/>
-						</div>
-						<div class="mb-3">
-							<label for="">Customer Country</label>
-							<input id="edit_country" type="text" name="cust_country" class="form-control" required/>
-						</div>
-						<div class="mb-3">
-							<label for="agentcode" class="form-label">AGENT</label>
-							<select class="form-select" id="edit_agent" aria-label="Default select example" name="agent_code" required>
-								<option selected>Select Agent</option>
-								{% for agent in agents %}
-									<option value="{{agent.agent_code}}">{{agent.agent_name}}</option>
-								{% endfor %}
-							</select>
-						</div>
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-							Close
-						</button>
-						<button type="button" class="btn btn-primary" id="btn_update">Save Data</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="modal fade" id="ModalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="modal_detailSchool" tabindex="-1" aria-labelledby="detailSchoolModal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -143,28 +95,12 @@
 				</div>
 				<div class="modal-body">
 					<div class="mb-3">
-						<label class="form-label">Customer Code</label>
-						<input type="text" class="form-control " name="cust_code" disabled>
+						<span>Nama Sekolah</label>
+						<h4 data-name="nama_sekolah"></h4>
 					</div>
 					<div class="mb-3">
-						<label class="form-label">Customer Name</label>
-						<input type="text" class="form-control " name="cust_name" disabled>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Customer City</label>
-						<input type="text" class="form-control " name="cust_city" disabled>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Agent Name</label>
-						<input type="text" class="form-control " name="agent_name" disabled>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Agent Work Area</label>
-						<input type="text" class="form-control " name="working_agent" disabled>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Phone Agent</label>
-						<input type="text" class="form-control " name="phone_agent" disabled>
+						<label class="form-label">Alamat Sekolah</label>
+						<h4 data-name="alamat"></h4>
 					</div>
 				</div>
 
@@ -177,8 +113,7 @@
 		</div>
 	</div>
 
-
-	<div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="modal_deleteSchool" tabindex="-1" role="dialog" aria-labelledby="deleteSchoolModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -186,12 +121,10 @@
 				</div>
 				<form class="form-horizontal">
 					<div class="modal-body">
-
-						<input type="hidden" name="kode" id="textkode" value="">
+						<input type="hidden" name="deleteId" id="deleteId" value="">
 						<div class="alert alert-danger">
 							<p>Are you sure you want to delete this data?</p>
 						</div>
-
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
