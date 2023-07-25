@@ -79,7 +79,7 @@ class SekolahController extends BaseController {
     }
 
     public static function deleteSekolah($app, $request, HttpResponse $response, $args) {
-        $id = $args['data'];
+        $id = $args['data']['id'];
         $result = $app->db->delete('tbl_sekolah', ["id" => intval($id)]);
         return $response->withJson($result);
     }
